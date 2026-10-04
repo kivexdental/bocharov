@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    color: #111419;
+    background-color: #DFE2E6;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #DFE2E6;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  /* Safe media scaling to prevent horizontal overflow */
+  img, svg, video, canvas, audio, iframe, embed, object {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Accessible focus indicators for keyboard navigation */
+  :focus-visible {
+    outline: 2px solid #2D5FC7;
+    outline-offset: 3px;
+  }
+
+  /* Respect reduced motion preferences (WCAG 2.2) */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Custom subtle scrollbar */
+  ::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #E3E6EB;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #B6BDCA;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #8A94A6;
+  }
+}
+
+@layer utilities {
+  /* Glassmorphic card styling inspired by reference */
+  .glass-badge {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .glass-dark-capsule {
+    background: rgba(18, 22, 28, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.35);
+  }
+
+  /* Soft card container with gentle inner shadow and border */
+  .master-container {
+    background: #ECEEF1;
+    border-radius: 36px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 10px 30px -5px rgba(26, 32, 44, 0.04);
+  }
+
+  @media (min-width: 768px) {
+    .master-container {
+      border-radius: 44px;
+    }
+  }
+
+  /* Watermark text for All-on-4 */
+  .text-watermark {
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1.5px rgba(180, 186, 198, 0.35);
+    letter-spacing: -0.04em;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  /* Pulsing target node */
+  .radar-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 9999px;
+    border: 1px solid rgba(185, 245, 59, 0.35);
+    pointer-events: none;
+  }
+}
